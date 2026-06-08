@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY WEBPAGE </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<style>
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+
+  .fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  #typing::after {
+    content: '|';
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
+
+
+
+  input,
+  textarea {
+    backdrop-filter: blur(10px);
+  }
+</style>
+
+<body class="bg-slate-950 text-white">
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full top-0 z-50 bg-white/5 backdrop-blur-lg border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-semibold text-cyan-400">SAURABH PATEL</h1>
+
+      <div class="hidden md:flex space-x-8">
+        <a href="#" class="hover:text-cyan-400">Home</a>
+        <a href="#" class="hover:text-cyan-400">Projects</a>
+        <a href="#" class="hover:text-cyan-400">About</a>
+        <a href="#" class="hover:text-cyan-400">Contact</a>
+      </div>
+
+      <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="#" class="block">Home</a>
+      <a href="#" class="block">Projects</a>
+      <a href="#" class="block">About</a>
+      <a href="#contact" class="block">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="relative h-screen overflow-hidden flex items-center justify-center text-center px-6">
+
+    <!-- SLIDER -->
+    <div id="slider" class="absolute inset-0">
+
+      <div class="slide absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" class="w-full h-full object-cover">
+      </div>
+
+      <div class="slide absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" class="w-full h-full object-cover">
+      </div>
+
+      <div class="slide absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" class="w-full h-full object-cover">
+      </div>
+
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 max-w-xl">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">
+        Hi, I'm <span id="typing" class="text-cyan-400"></span>
+      </h1>
+
+      <p class="text-gray-300 mb-6">
+        I create modern, responsive and high-performance websites for businesses and portfolios.
+      </p>
+
+      <div class="flex justify-center gap-4">
+        <a href="#" class="bg-cyan-400 text-black px-6 py-3 rounded-full hover:bg-cyan-300">
+          View Work
+        </a>
+
+        <a href="#" class="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black">
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <div class="absolute bottom-5 w-full flex justify-center gap-2 z-20">
+    <span class="dot w-3 h-3 bg-white rounded-full cursor-pointer"></span>
+    <span class="dot w-3 h-3 bg-white/50 rounded-full cursor-pointer"></span>
+    <span class="dot w-3 h-3 bg-white/50 rounded-full cursor-pointer"></span>
+  </div>
+
+  <button id="prev" class="absolute left-5 top-1/2 -translate-y-1/2 text-white text-3xl">‹</button>
+  <button id="next" class="absolute right-5 top-1/2 -translate-y-1/2 text-white text-3xl">›</button>
+
+  <!-- SKILLS STRIP -->
+  <section class="bg-slate-900 py-6">
+    <div class="max-w-6xl mx-auto px-6 flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
+
+      <span>⚡ Fast Websites</span>
+      <span>📱 Fully Responsive</span>
+      <span>🎨 Modern UI/UX</span>
+      <span>🚀 SEO Optimized</span>
+      <span>💻 Clean Code</span>
+
+    </div>
+  </section>
+  <section class="max-w-7xl mx-auto px-6 py-16">
+
+    <h2 class="text-3xl font-semibold mb-10 text-center">My Projects</h2>
+
+    <!-- FILTER -->
+    <div class="text-center mb-10">
+      <button class="filter-btn px-4 py-2 bg-cyan-400 text-black rounded-full m-1" data-filter="all">All</button>
+      <button class="filter-btn px-4 py-2 bg-white/10 rounded-full m-1" data-filter="web">Web</button>
+      <button class="filter-btn px-4 py-2 bg-white/10 rounded-full m-1" data-filter="ui">UI</button>
+    </div>
+
+    <!-- PROJECT GRID -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- CARD -->
+      <div class="project web group relative overflow-hidden rounded-xl cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+          class="w-full h-60 object-cover transition duration-500 group-hover:scale-110">
+
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center p-4">
+          <h3 class="text-xl font-semibold">Portfolio Website</h3>
+          <p class="text-gray-300 text-sm">Modern UI with Tailwind</p>
+          <button class="mt-3 px-4 py-2 bg-cyan-400 text-black rounded-full">View</button>
+        </div>
+      </div>
+
+      <!-- CARD -->
+      <div class="project web group relative overflow-hidden rounded-xl cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+          class="w-full h-60 object-cover transition duration-500 group-hover:scale-110">
+
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center p-4">
+          <h3 class="text-xl font-semibold">Business Website</h3>
+          <p class="text-gray-300 text-sm">Fast & Responsive</p>
+          <button class="mt-3 px-4 py-2 bg-cyan-400 text-black rounded-full">View</button>
+        </div>
+      </div>
+
+      <!-- CARD -->
+      <div class="project ui group relative overflow-hidden rounded-xl cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+          class="w-full h-60 object-cover transition duration-500 group-hover:scale-110">
+
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center p-4">
+          <h3 class="text-xl font-semibold">E-commerce UI</h3>
+          <p class="text-gray-300 text-sm">Conversion focused design</p>
+          <button class="mt-3 px-4 py-2 bg-cyan-400 text-black rounded-full">View</button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="bg-slate-900 py-20">
+
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- LEFT (IMAGE + INFO) -->
+      <div class="relative">
+
+        <img src="/upload/saurabh.png" alt="Saurabh Patel"
+          class="rounded-2xl shadow-lg w-[350px] h-[450px] object-cover"
+          style="clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);">
+
+          <!-- Glow -->
+        <div class="absolute -inset-2 bg-cyan-500 opacity-20 blur-3xl rounded-2xl"></div>
+
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div>
+
+        <h2 class="text-4xl font-bold mb-4">
+          About <span class="text-cyan-400">Me</span>
+        </h2>
+
+        <p class="text-gray-400 mb-6">
+          I'm a passionate web developer who loves building modern, fast and user-friendly websites.
+          I focus on clean UI design, smooth animations and performance optimization.
+        </p>
+
+        <!-- SKILLS GRID -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+            HTML
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+            CSS
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+            JavaScript
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+            Tailwind
+          </div>
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+            jQuery
+          </div>
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+            bootstrap
+          </div>
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+            laravel
+          </div>
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+            Codigniter
+          </div>
+          <div class="bg-white/5 p-4 rounded-xl text-center hover:bg-cyan-500/20 transition">
+           Php
+          </div>
+
+        </div>
+
+        <!-- PROGRESS BARS -->
+        <div class="space-y-4">
+
+          <div>
+            <p class="text-sm mb-1">Frontend Development</p>
+            <div class="w-full bg-white/10 h-2 rounded-full">
+              <div class="bg-cyan-400 h-2 rounded-full w-[90%]"></div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm mb-1">UI/UX Design</p>
+            <div class="w-full bg-white/10 h-2 rounded-full">
+              <div class="bg-cyan-400 h-2 rounded-full w-[85%]"></div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm mb-1">Performance Optimization</p>
+            <div class="w-full bg-white/10 h-2 rounded-full">
+              <div class="bg-cyan-400 h-2 rounded-full w-[80%]"></div>
+            </div>
+          </div>
+
+        </div>
+        <br>
+        <br>
+
+      </div>
+
+    </div>
+
+
+    <!-- contact section  -->
+
+    <section class="relative py-24 bg-gradient-to-br from-slate-950 via-slate-900 to-black overflow-hidden">
+
+      <!-- GLOW BACKGROUND -->
+      <div class="absolute top-0 left-0 w-72 h-72 bg-cyan-500/20 blur-3xl rounded-full"></div>
+      <div class="absolute bottom-0 right-0 w-72 h-72 bg-purple-500/20 blur-3xl rounded-full"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+        <!-- HEADING -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold">
+            Get In <span class="text-cyan-400">Touch</span>
+          </h2>
+          <p class="text-gray-400 mt-3 max-w-xl mx-auto">
+            Let’s build something amazing together. Drop me a message anytime 🚀
+          </p>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+
+          <!-- LEFT SIDE (INFO CARDS) -->
+          <div class="space-y-6">
+
+            <!-- EMAIL -->
+            <div class="flex items-center gap-4 bg-white/5 border border-white/10 p-5 rounded-xl hover:border-cyan-400 transition">
+              <div class="text-2xl">📧</div>
+              <div>
+                <p class="text-sm text-gray-400">Email</p>
+                <a href="mailto:saurabhpp7081email@gmail.com"
+                  class="text-white hover:text-cyan-400">
+                  saurabhpp7081email@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- PHONE -->
+            <div class="flex items-center gap-4 bg-white/5 border border-white/10 p-5 rounded-xl hover:border-cyan-400 transition">
+              <div class="text-2xl">📞</div>
+              <div>
+                <p class="text-sm text-gray-400">Phone</p>
+                <a href="tel:+918957174765"
+                  class="text-white hover:text-cyan-400">
+                  +91 8957174765
+                </a>
+              </div>
+            </div>
+
+            <!-- LOCATION -->
+            <div class="bg-white/5 border border-white/10 p-5 rounded-xl hover:border-cyan-400 transition">
+
+              <p class="text-sm text-gray-400 mb-2">Location</p>
+
+              <div class="w-full h-40 rounded-lg overflow-hidden mb-2">
+                <iframe
+                  src="https://www.google.com/maps?q=Matiyari+Lucknow&output=embed"
+                  class="w-full h-full border-0">
+                </iframe>
+              </div>
+
+              <p class="text-white text-sm">Matiyari, Lucknow</p>
+
+            </div>
+
+          </div>
+
+          <!-- RIGHT SIDE (FORM) -->
+          <div class="bg-white/5 border border-white/10 p-8 rounded-xl backdrop-blur">
+
+            <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+
+            <form method="POST" action="mail.php" class="space-y-4">
+
+              <input type="text" name="name" placeholder="Your Name"
+                class="w-full p-3 bg-slate-900 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-400">
+
+              <input type="email" name="email" placeholder="Your Email"
+                class="w-full p-3 bg-slate-900 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-400">
+
+              <textarea name="message" rows="5" placeholder="Your Message"
+                class="w-full p-3 bg-slate-900 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-400"></textarea>
+
+              <button type="submit"
+                class="w-full bg-cyan-400 text-black py-3 rounded-lg font-semibold hover:bg-cyan-300 transition">
+                Send Message 🚀
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- FOOTER -->
+    <footer class="text-center py-6 border-t border-white/10 text-gray-500">
+      © 2026 My Portfolio | SAURABH PATEL
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      let slides = $('#slider .slide');
+      let index = 0;
+      let interval;
+
+      slides.hide().eq(0).show();
+
+      function showSlide(i) {
+        slides.fadeOut(500);
+        slides.eq(i).fadeIn(500);
+        $('.dot').removeClass('bg-white').addClass('bg-white/50');
+        $('.dot').eq(i).addClass('bg-white');
+      }
+
+      function nextSlide() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+      }
+
+      function prevSlide() {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+      }
+
+      function startSlider() {
+        interval = setInterval(nextSlide, 3000);
+      }
+
+      $('#next').click(nextSlide);
+      $('#prev').click(prevSlide);
+
+      $('.dot').click(function() {
+        index = $(this).index();
+        showSlide(index);
+      });
+
+      startSlider();
+    </script>
+
+
+    <script>
+      $(window).on('scroll', function() {
+        $('.fade-up').each(function() {
+          let top = $(this).offset().top;
+          let scroll = $(window).scrollTop();
+          let windowH = $(window).height();
+
+          if (scroll + windowH - 50 > top) {
+            $(this).addClass('show');
+          }
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function() {
+
+        let texts = ["Saurabh Patel", "Full Stack Developer", "Freelancer"];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+
+        function type() {
+          if (count === texts.length) {
+            count = 0;
+          }
+
+          currentText = texts[count];
+          letter = currentText.slice(0, ++index);
+
+          $('#typing').text(letter);
+
+          if (letter.length === currentText.length) {
+            setTimeout(deleteText, 1500);
+          } else {
+            setTimeout(type, 100);
+          }
+        }
+
+        function deleteText() {
+          letter = currentText.slice(0, --index);
+          $('#typing').text(letter);
+
+          if (letter.length === 0) {
+            count++;
+            setTimeout(type, 200);
+          } else {
+            setTimeout(deleteText, 50);
+          }
+        }
+
+        type();
+
+      });
+    </script>
+
+    <script>
+      $('.filter-btn').click(function() {
+
+        $('.filter-btn').removeClass('bg-cyan-400 text-black')
+          .addClass('bg-white/10');
+
+        $(this).addClass('bg-cyan-400 text-black');
+
+        let filter = $(this).data('filter');
+
+        if (filter === 'all') {
+          $('.project').fadeIn();
+        } else {
+          $('.project').hide();
+          $('.' + filter).fadeIn();
+        }
+
+      });
+    </script>
+
+    <script>
+      $('form').submit(function() {
+        alert('Message Sent Successfully 🚀');
+      });
+    </script>
+
+
+</body>
+
+</html>
