@@ -8,10 +8,10 @@ const sections = [...navAnchors]
   .filter(Boolean);
 const typingText = document.getElementById("typingText");
 const typingWords = [
-  "UI Systems",
-  "Brand Websites",
-  "Landing Pages",
-  "Premium Frontends"
+  "Bug Fixes",
+  "Website Builds",
+  "Frontend Polish",
+  "Responsive Fixes"
 ];
 
 if (menuToggle && navLinks) {
