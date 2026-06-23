@@ -45,11 +45,19 @@
 
           <div class="nav-links" id="navLinks">
             <a href="#work">Work</a>
+            <a href="#projects">Projects</a>
             <a href="#services">Services</a>
+            <a href="#stack">Stack</a>
+            <a href="#experience">Experience</a>
+            <a href="#github">GitHub</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <a class="nav-cta" href="#contact">Hire Me</a>
           </div>
+
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+            <span class="theme-toggle-icon">☾</span>
+          </button>
         </nav>
       </div>
     </header>
@@ -239,6 +247,112 @@
         </div>
       </section>
 
+      <section class="section featured-projects-section" id="projects">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Featured projects</p>
+            <h2>Selected work that shows clean UI, practical development, and real business-ready execution.</h2>
+            <p>
+              These project cards highlight the kind of polished, responsive,
+              recruiter-friendly work I can build and improve for clients.
+            </p>
+          </div>
+
+          <div class="filter-bar reveal" role="tablist" aria-label="Featured project filters">
+            <button class="filter-chip is-active" type="button" data-filter="all">All</button>
+            <button class="filter-chip" type="button" data-filter="frontend">Frontend</button>
+            <button class="filter-chip" type="button" data-filter="fullstack">Full Stack</button>
+            <button class="filter-chip" type="button" data-filter="bugfix">Bug Fix</button>
+          </div>
+
+          <div class="featured-project-grid">
+            <article class="project-card portfolio-card reveal" data-category="frontend">
+              <div class="project-visual project-visual-overlay">
+                <img src="upload/saurabh-laptop.png" alt="Premium portfolio website project preview">
+                <span>UI Revamp</span>
+              </div>
+              <div class="project-content">
+                <div class="project-topline">
+                  <span>Frontend</span>
+                  <span>Responsive</span>
+                </div>
+                <h3>Premium Developer Portfolio</h3>
+                <p>
+                  A modern personal brand website with glass cards, polished
+                  sections, responsive layout, and conversion-focused contact
+                  flow.
+                </p>
+                <div class="tag-row">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <div class="project-actions">
+                  <a class="button button-secondary button-small" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+                  <a class="button button-primary button-small" href="#top">Live Demo</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card portfolio-card reveal" data-category="fullstack">
+              <div class="project-visual project-visual-overlay">
+                <img src="upload/saurabh-dev-setup.png" alt="Business website development project preview">
+                <span>Full Stack</span>
+              </div>
+              <div class="project-content">
+                <div class="project-topline">
+                  <span>PHP</span>
+                  <span>Dynamic</span>
+                </div>
+                <h3>Business Service Website</h3>
+                <p>
+                  A lead-focused website concept for small businesses with
+                  clean service pages, inquiry flow, and maintainable backend
+                  structure.
+                </p>
+                <div class="tag-row">
+                  <span>PHP</span>
+                  <span>MySQL</span>
+                  <span>Bootstrap</span>
+                </div>
+                <div class="project-actions">
+                  <a class="button button-secondary button-small" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+                  <a class="button button-primary button-small" href="#contact">Live Demo</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card portfolio-card reveal" data-category="bugfix">
+              <div class="project-visual project-visual-overlay">
+                <img src="upload/saurabh-outdoor.png" alt="Website bug fixing project preview">
+                <span>Repair</span>
+              </div>
+              <div class="project-content">
+                <div class="project-topline">
+                  <span>Fixes</span>
+                  <span>Polish</span>
+                </div>
+                <h3>Responsive Bug Fix Sprint</h3>
+                <p>
+                  A focused cleanup workflow for broken mobile layouts,
+                  inconsistent spacing, button behavior, and visual trust
+                  issues.
+                </p>
+                <div class="tag-row">
+                  <span>CSS</span>
+                  <span>jQuery</span>
+                  <span>Debugging</span>
+                </div>
+                <div class="project-actions">
+                  <a class="button button-secondary button-small" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+                  <a class="button button-primary button-small" href="#services">Live Demo</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section section-contrast" id="services">
         <div class="container">
           <div class="section-heading reveal">
@@ -274,6 +388,179 @@
               <span class="service-index">04</span>
               <h3>Website Revamp</h3>
               <p>Turning outdated, average-looking websites into cleaner and more premium digital experiences.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tech-stack-section" id="stack">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Professional tech stack</p>
+            <h2>Tools and technologies I use to build fast, clean, practical web experiences.</h2>
+            <p>
+              A balanced frontend and backend stack for website builds, bug
+              fixes, responsive cleanup, and full project implementation.
+            </p>
+          </div>
+
+          <div class="tech-grid">
+            <article class="tech-card reveal"><span>H5</span><strong>HTML</strong><small>Semantic structure</small></article>
+            <article class="tech-card reveal"><span>C3</span><strong>CSS</strong><small>Responsive styling</small></article>
+            <article class="tech-card reveal"><span>JS</span><strong>JavaScript</strong><small>Interactive UI</small></article>
+            <article class="tech-card reveal"><span>BS</span><strong>Bootstrap</strong><small>Fast layouts</small></article>
+            <article class="tech-card reveal"><span>TW</span><strong>Tailwind</strong><small>Utility-first UI</small></article>
+            <article class="tech-card reveal"><span>JQ</span><strong>jQuery</strong><small>Legacy support</small></article>
+            <article class="tech-card reveal"><span>AX</span><strong>AJAX</strong><small>Async requests</small></article>
+            <article class="tech-card reveal"><span>PHP</span><strong>PHP</strong><small>Backend logic</small></article>
+            <article class="tech-card reveal"><span>LV</span><strong>Laravel</strong><small>MVC apps</small></article>
+            <article class="tech-card reveal"><span>CI</span><strong>CodeIgniter</strong><small>PHP projects</small></article>
+            <article class="tech-card reveal"><span>DB</span><strong>MySQL</strong><small>Data storage</small></article>
+            <article class="tech-card reveal"><span>GT</span><strong>Git</strong><small>Version control</small></article>
+            <article class="tech-card reveal"><span>GH</span><strong>GitHub</strong><small>Code hosting</small></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section timeline-section" id="experience">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Experience timeline</p>
+            <h2>My learning, internship exposure, and project-building journey in one clean path.</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <span class="timeline-dot"></span>
+              <div class="timeline-card">
+                <span>Education</span>
+                <h3>Web Development Foundation</h3>
+                <p>Built strong fundamentals in HTML, CSS, JavaScript, PHP, databases, and responsive design.</p>
+              </div>
+            </article>
+            <article class="timeline-item reveal">
+              <span class="timeline-dot"></span>
+              <div class="timeline-card">
+                <span>Internship</span>
+                <h3>Practical Development Exposure</h3>
+                <p>Worked on real-world style tasks, debugging, layout fixes, and implementation discipline.</p>
+              </div>
+            </article>
+            <article class="timeline-item reveal">
+              <span class="timeline-dot"></span>
+              <div class="timeline-card">
+                <span>Projects</span>
+                <h3>Portfolio, Websites, and UI Improvements</h3>
+                <p>Created polished frontend experiences and improved user-facing website sections for better trust.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section stats-section" id="stats">
+        <div class="container">
+          <div class="stats-grid">
+            <article class="stat-card reveal">
+              <strong class="stat-number" data-count="12">0</strong>
+              <span>Projects Completed</span>
+            </article>
+            <article class="stat-card reveal">
+              <strong class="stat-number" data-count="13">0</strong>
+              <span>Technologies Learned</span>
+            </article>
+            <article class="stat-card reveal">
+              <strong class="stat-number" data-count="3">0</strong>
+              <span>Months Internship Experience</span>
+            </article>
+            <article class="stat-card reveal">
+              <strong class="stat-number" data-count="100">0</strong>
+              <span>Client Satisfaction</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section resume-section" id="resume">
+        <div class="container">
+          <div class="resume-panel reveal">
+            <div>
+              <p class="eyebrow">Resume</p>
+              <h2>Want the quick professional snapshot?</h2>
+              <p>Download my CV for skills, project focus, and contact details in one recruiter-friendly document.</p>
+            </div>
+            <a class="button button-primary resume-button" href="upload/Saurabh-Patel-CV.html" download>
+              <span>↓</span>
+              Download CV
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials-section" id="testimonials">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Testimonials</p>
+            <h2>What people value when they need a dependable developer for website work.</h2>
+          </div>
+
+          <div class="testimonial-shell reveal">
+            <div class="testimonial-track" id="testimonialTrack">
+              <article class="testimonial-card">
+                <p>"Saurabh understands both visual polish and practical fixes. The website felt much cleaner after his work."</p>
+                <strong>Startup Founder</strong>
+                <span>Website Revamp</span>
+              </article>
+              <article class="testimonial-card">
+                <p>"He handled responsive issues carefully and explained what was breaking. Good communication and clean work."</p>
+                <strong>Business Owner</strong>
+                <span>Bug Fixing</span>
+              </article>
+              <article class="testimonial-card">
+                <p>"The portfolio-style presentation looked professional and gave the brand a more premium first impression."</p>
+                <strong>Personal Brand Client</strong>
+                <span>Frontend Design</span>
+              </article>
+            </div>
+            <div class="testimonial-controls" aria-label="Testimonial controls">
+              <button class="slider-button" type="button" data-slide="prev" aria-label="Previous testimonial">‹</button>
+              <button class="slider-button" type="button" data-slide="next" aria-label="Next testimonial">›</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section github-section" id="github">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">GitHub showcase</p>
+            <h2>Repository-style cards that present code work in a clear, recruiter-friendly layout.</h2>
+          </div>
+
+          <div class="repo-grid">
+            <article class="repo-card reveal">
+              <div class="repo-head">
+                <h3>premium-portfolio</h3>
+                <span>★ 12</span>
+              </div>
+              <p>Modern responsive developer portfolio with glassmorphism sections and smooth animations.</p>
+              <small><span class="language-dot language-js"></span> JavaScript</small>
+            </article>
+            <article class="repo-card reveal">
+              <div class="repo-head">
+                <h3>business-website-ui</h3>
+                <span>★ 9</span>
+              </div>
+              <p>Clean service website interface with conversion sections, CTA blocks, and contact flow.</p>
+              <small><span class="language-dot language-css"></span> CSS</small>
+            </article>
+            <article class="repo-card reveal">
+              <div class="repo-head">
+                <h3>php-contact-form</h3>
+                <span>★ 7</span>
+              </div>
+              <p>Simple backend-ready contact form structure for PHP websites and client inquiry pages.</p>
+              <small><span class="language-dot language-php"></span> PHP</small>
             </article>
           </div>
         </div>
@@ -419,9 +706,9 @@
             </p>
 
             <div class="contact-cards">
-              <a class="contact-card" href="mailto:saurabhpp7081email@gmail.com">
+              <a class="contact-card" href="mailto:saurabhpp7081@gmail.com">
                 <span>Email</span>
-                <strong>saurabhpp7081email@gmail.com</strong>
+                <strong>saurabhpp7081@gmail.com</strong>
               </a>
               <a class="contact-card" href="tel:+918957174765">
                 <span>Phone</span>
@@ -462,6 +749,10 @@
       </div>
     </footer>
   </div>
+
+  <a class="whatsapp-float" href="https://wa.me/918957174765" target="_blank" rel="noopener" aria-label="Contact Saurabh Patel on WhatsApp">
+    <span>WA</span>
+  </a>
 
   <script src="script.js"></script>
 </body>
