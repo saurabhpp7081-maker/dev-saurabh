@@ -17,7 +17,34 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="site-shell">
+  <div class="site-shell" data-bg-mode="matrix">
+    <!-- 3D Matrix Digital Rain & Cyber Code Canvas -->
+    <canvas id="matrixCanvas" class="matrix-canvas" aria-hidden="true"></canvas>
+
+    <!-- Aurora Cosmic Glow Mesh -->
+    <div class="aurora-mesh" aria-hidden="true">
+      <div class="aurora-orb orb-cyan"></div>
+      <div class="aurora-orb orb-purple"></div>
+      <div class="aurora-orb orb-emerald"></div>
+      <div class="aurora-orb orb-magenta"></div>
+    </div>
+
+    <!-- Live Coding Background Video (Toggleable) -->
+    <div class="video-bg-wrap" id="videoBgWrap">
+      <video class="code-bg-video" id="codeBgVideo" autoplay loop muted playsinline poster="upload/saurabh-dev-setup.png">
+        <source src="upload/coding-terminal-bg.webm" type="video/webm">
+        <source src="upload/coding-terminal-bg.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay-gradient"></div>
+      <div class="video-scanlines"></div>
+      <div class="video-ambient-mesh"></div>
+    </div>
+
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
     <div class="ambient ambient-one"></div>
     <div class="ambient ambient-two"></div>
     <div class="ambient ambient-three"></div>
@@ -55,9 +82,19 @@
             <a class="nav-cta" href="#contact">Hire Me</a>
           </div>
 
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
-            <span class="theme-toggle-icon">☾</span>
-          </button>
+          <div class="nav-controls">
+            <!-- Visual Mode Switcher (Matrix Rain / Cyber Glow / Video BG) -->
+            <button class="mode-toggle-btn" id="modeToggleBtn" type="button" aria-label="Switch visual background mode" title="Switch Visual Mode (Matrix / Cyber / Video)">
+              <span class="mode-icon" id="modeIcon">🟢</span>
+              <span class="mode-label" id="modeLabel">Matrix</span>
+            </button>
+            <button class="sound-toggle-btn" id="soundToggleBtn" type="button" aria-label="Toggle sound effects" title="Toggle Audio FX">
+              <span id="soundIcon">🔇</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme" title="Switch Theme (Dark / Light)">
+              <span class="theme-toggle-icon">☾</span>
+            </button>
+          </div>
         </nav>
       </div>
     </header>
@@ -66,6 +103,13 @@
       <section class="hero section">
         <div class="container hero-grid hero-grid-strong">
           <div class="hero-copy reveal">
+            <div class="hero-status-pill">
+              <span class="live-dot-wrap">
+                <span class="live-dot-ping"></span>
+                <span class="live-dot"></span>
+              </span>
+              <span>Available for New Projects &amp; Bug Fixing</span>
+            </div>
             <p class="eyebrow">Website development + bug fixing</p>
             <h1>
               I build websites that look premium
@@ -97,14 +141,80 @@
           </div>
 
           <div class="hero-visual reveal">
-            <article class="hero-stage hero-stage-photo">
+            <article class="hero-stage hero-stage-photo border-beam-card">
               <div class="hero-stage-topline">
-                <span>Developer for serious web work</span>
-                <span id="typingText">Bug Fixes</span>
+                <span class="stage-tag"><span class="terminal-dot"></span> Senior Developer &amp; Bug Fix Expert</span>
+                <span class="typing-container"><span id="typingText">Bug Fixes</span><span class="typing-caret" aria-hidden="true"></span></span>
               </div>
 
-              <div class="hero-portrait hero-portrait-wide">
-                <img src="upload/saurabh-dev-setup.png" alt="Saurabh Patel working at a coding setup">
+              <!-- 3D Holographic Orbit Stage -->
+              <div class="hero-orbit-stage">
+                <div class="hero-portrait hero-portrait-wide">
+                  <img src="upload/saurabh-dev-setup.png" alt="Saurabh Patel working at a coding setup">
+                  <div class="cyber-scanline-beam" aria-hidden="true"></div>
+                  <div class="floating-badge floating-badge-top">
+                    <div class="floating-badge-icon">⚡</div>
+                    <div class="floating-badge-text">
+                      <strong>Fast Turnaround</strong>
+                      <span>24h Bug Fixing</span>
+                    </div>
+                  </div>
+                  <div class="floating-badge floating-badge-bottom">
+                    <div class="floating-badge-icon">⭐</div>
+                    <div class="floating-badge-text">
+                      <strong>100% Quality</strong>
+                      <span>Pixel-Perfect UI</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Orbiting Tech Planetary Badges -->
+                <div class="orbit-system" aria-hidden="true">
+                  <div class="orbit-path orbit-path-outer">
+                    <div class="orbit-badge badge-js" title="JavaScript"><span>JS</span></div>
+                    <div class="orbit-badge badge-react" title="React"><span>⚛</span></div>
+                    <div class="orbit-badge badge-php" title="PHP"><span>PHP</span></div>
+                  </div>
+                  <div class="orbit-path orbit-path-inner">
+                    <div class="orbit-badge badge-html" title="HTML5"><span>H5</span></div>
+                    <div class="orbit-badge badge-css" title="CSS3"><span>C3</span></div>
+                    <div class="orbit-badge badge-tw" title="Tailwind"><span>TW</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Live VS Code Editor Window -->
+              <div class="cyber-editor-window">
+                <div class="editor-header">
+                  <div class="window-controls">
+                    <span class="control-dot dot-red"></span>
+                    <span class="control-dot dot-yellow"></span>
+                    <span class="control-dot dot-green"></span>
+                  </div>
+                  <div class="editor-tabs">
+                    <span class="editor-tab active"><span class="tab-icon">⚡</span> developer.config.js</span>
+                    <span class="editor-tab"><span class="tab-icon">⚙</span> bugfix.engine.php</span>
+                  </div>
+                  <button class="run-code-btn" id="runCodeBtn" type="button" title="Click to test build pipeline">
+                    <span class="play-icon">▶</span> Run Pipeline
+                  </button>
+                </div>
+                <div class="editor-body">
+                  <pre class="code-lines"><code><span class="c-line"><span class="ln">1</span> <span class="k-kw">const</span> <span class="k-var">saurabh</span> = {</span>
+<span class="c-line"><span class="ln">2</span>   <span class="k-prop">expertise</span>: <span class="k-str">"Premium Websites &amp; Bug Fixing"</span>,</span>
+<span class="c-line"><span class="ln">3</span>   <span class="k-prop">speed</span>: <span class="k-str">"24h Delivery"</span>, <span class="k-prop">satisfaction</span>: <span class="k-str">"100%"</span>,</span>
+<span class="c-line"><span class="ln">4</span>   <span class="k-fn">deploy</span>: () =&gt; <span class="k-str">"Zero bugs. Maximum performance 🚀"</span></span>
+<span class="c-line"><span class="ln">5</span> };</span></code></pre>
+                </div>
+                <div class="editor-terminal" id="editorTerminal">
+                  <div class="terminal-bar">
+                    <span>● Live Build Output (Terminal)</span>
+                    <span class="terminal-badge" id="terminalBadge">Active</span>
+                  </div>
+                  <div class="terminal-output" id="terminalOutput">
+                    <div class="term-line"><span class="term-prompt">&gt;</span> Ready. Click <strong style="color:var(--accent);">[Run Pipeline]</strong> to compile and test live...</div>
+                  </div>
+                </div>
               </div>
 
               <div class="hero-stage-cards">
@@ -405,19 +515,19 @@
           </div>
 
           <div class="tech-grid">
-            <article class="tech-card reveal"><span>H5</span><strong>HTML</strong><small>Semantic structure</small></article>
-            <article class="tech-card reveal"><span>C3</span><strong>CSS</strong><small>Responsive styling</small></article>
-            <article class="tech-card reveal"><span>JS</span><strong>JavaScript</strong><small>Interactive UI</small></article>
-            <article class="tech-card reveal"><span>BS</span><strong>Bootstrap</strong><small>Fast layouts</small></article>
-            <article class="tech-card reveal"><span>TW</span><strong>Tailwind</strong><small>Utility-first UI</small></article>
-            <article class="tech-card reveal"><span>JQ</span><strong>jQuery</strong><small>Legacy support</small></article>
-            <article class="tech-card reveal"><span>AX</span><strong>AJAX</strong><small>Async requests</small></article>
-            <article class="tech-card reveal"><span>PHP</span><strong>PHP</strong><small>Backend logic</small></article>
-            <article class="tech-card reveal"><span>LV</span><strong>Laravel</strong><small>MVC apps</small></article>
-            <article class="tech-card reveal"><span>CI</span><strong>CodeIgniter</strong><small>PHP projects</small></article>
-            <article class="tech-card reveal"><span>DB</span><strong>MySQL</strong><small>Data storage</small></article>
-            <article class="tech-card reveal"><span>GT</span><strong>Git</strong><small>Version control</small></article>
-            <article class="tech-card reveal"><span>GH</span><strong>GitHub</strong><small>Code hosting</small></article>
+            <article class="tech-card reveal" data-tech="html"><span>H5</span><strong>HTML</strong><small>Semantic structure</small></article>
+            <article class="tech-card reveal" data-tech="css"><span>C3</span><strong>CSS</strong><small>Responsive styling</small></article>
+            <article class="tech-card reveal" data-tech="js"><span>JS</span><strong>JavaScript</strong><small>Interactive UI</small></article>
+            <article class="tech-card reveal" data-tech="bootstrap"><span>BS</span><strong>Bootstrap</strong><small>Fast layouts</small></article>
+            <article class="tech-card reveal" data-tech="tailwind"><span>TW</span><strong>Tailwind</strong><small>Utility-first UI</small></article>
+            <article class="tech-card reveal" data-tech="jquery"><span>JQ</span><strong>jQuery</strong><small>Legacy support</small></article>
+            <article class="tech-card reveal" data-tech="ajax"><span>AX</span><strong>AJAX</strong><small>Async requests</small></article>
+            <article class="tech-card reveal" data-tech="php"><span>PHP</span><strong>PHP</strong><small>Backend logic</small></article>
+            <article class="tech-card reveal" data-tech="laravel"><span>LV</span><strong>Laravel</strong><small>MVC apps</small></article>
+            <article class="tech-card reveal" data-tech="codeigniter"><span>CI</span><strong>CodeIgniter</strong><small>PHP projects</small></article>
+            <article class="tech-card reveal" data-tech="mysql"><span>DB</span><strong>MySQL</strong><small>Data storage</small></article>
+            <article class="tech-card reveal" data-tech="git"><span>GT</span><strong>Git</strong><small>Version control</small></article>
+            <article class="tech-card reveal" data-tech="github"><span>GH</span><strong>GitHub</strong><small>Code hosting</small></article>
           </div>
         </div>
       </section>
@@ -597,19 +707,78 @@
 
       <section class="section urgency-section">
         <div class="container">
-          <div class="urgency-panel reveal">
+          <div class="urgency-panel reveal border-beam-card">
             <div class="urgency-copy">
-              <p class="eyebrow">Need a quick fix?</p>
-              <h2>If your website has bugs, broken sections, poor responsiveness, or design issues, send me the problem and I can work on it.</h2>
+              <p class="eyebrow">Interactive Bug Fix Showcase</p>
+              <h2>Drag the slider to see how I fix broken websites and transform them into pixel-perfect experiences.</h2>
               <ul class="feature-list feature-list-tight">
-                <li>Broken layout on mobile or desktop</li>
-                <li>Non-working forms, buttons, or links</li>
-                <li>Frontend styling issues and UI cleanup</li>
-                <li>General website improvements and polish</li>
+                <li>Broken mobile &amp; tablet layout → Fixed &amp; 100% Responsive</li>
+                <li>Non-working forms, buttons, or broken links → Instant &amp; Verified</li>
+                <li>Messy CSS, layout shifts &amp; overlap errors → Pristine &amp; Polished</li>
+                <li>Sluggish load times &amp; performance drops → 99+ Speed Optimization</li>
               </ul>
+              <div class="hero-actions" style="margin-top: 1.6rem;">
+                <a class="button button-primary" href="#contact">Fix My Website Issues Now</a>
+              </div>
             </div>
-            <div class="urgency-media">
-              <img src="upload/saurabh-dev-setup.png" alt="Developer workspace for bug fixing and frontend work">
+
+            <!-- Before vs After Interactive Comparison Slider -->
+            <div class="urgency-media before-after-wrap">
+              <div class="before-after-box" id="baBox">
+                <!-- Before Side (Broken) -->
+                <div class="ba-layer ba-before">
+                  <div class="ba-status-tag tag-before">❌ Broken Website</div>
+                  <div class="broken-preview">
+                    <div class="broken-header-bar">
+                      <span class="site-url">client-site.com</span>
+                      <span class="err-pill">⚠️ 14 Layout Errors</span>
+                    </div>
+                    <div class="broken-content">
+                      <div class="err-box broken-hero">
+                        <span class="err-text">❌ Content Overlapping Screen</span>
+                      </div>
+                      <div class="err-grid">
+                        <div class="err-box">❌ Mobile Nav Missing</div>
+                        <div class="err-box">❌ Submit Button Dead</div>
+                      </div>
+                      <div class="err-box broken-footer">
+                        <span>❌ Horizontal scrollbar appearing</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- After Side (Fixed by Saurabh) -->
+                <div class="ba-layer ba-after" id="baAfterLayer">
+                  <div class="ba-status-tag tag-after">✅ Fixed By Saurabh Patel</div>
+                  <div class="fixed-preview">
+                    <div class="fixed-header-bar">
+                      <span class="site-url">client-site.com</span>
+                      <span class="success-pill">✓ 0 Errors • 99/100 Speed</span>
+                    </div>
+                    <div class="fixed-content">
+                      <div class="success-box fixed-hero">
+                        <span class="success-text">✨ 100% Pixel-Perfect Layout</span>
+                      </div>
+                      <div class="success-grid">
+                        <div class="success-box">✓ Smooth Animated Nav</div>
+                        <div class="success-box">✓ Instant Form Submit</div>
+                      </div>
+                      <div class="success-box fixed-footer">
+                        <span>✓ Clean Code &amp; Verified Security</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Draggable Divider Handle -->
+                <div class="ba-divider" id="baDivider">
+                  <div class="ba-handle-btn">
+                    <span>◀ ▶</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ba-hint">↔ Drag slider or hover left/right to compare</div>
             </div>
           </div>
         </div>
@@ -656,19 +825,19 @@
                 <span>Frontend Development</span>
                 <strong>90%</strong>
               </div>
-              <div class="progress"><span style="width: 90%"></span></div>
+              <div class="progress"><span class="progress-bar-fill" data-progress="90" style="width: 0%"></span></div>
 
               <div class="metric-row">
                 <span>Website Bug Fixing</span>
                 <strong>88%</strong>
               </div>
-              <div class="progress"><span style="width: 88%"></span></div>
+              <div class="progress"><span class="progress-bar-fill" data-progress="88" style="width: 0%"></span></div>
 
               <div class="metric-row">
                 <span>UI/UX Improvement</span>
                 <strong>86%</strong>
               </div>
-              <div class="progress"><span style="width: 86%"></span></div>
+              <div class="progress"><span class="progress-bar-fill" data-progress="86" style="width: 0%"></span></div>
             </div>
           </div>
         </div>
@@ -751,8 +920,18 @@
   </div>
 
   <a class="whatsapp-float" href="https://wa.me/918957174765" target="_blank" rel="noopener" aria-label="Contact Saurabh Patel on WhatsApp">
-    <span>WA</span>
+    <span class="whatsapp-tooltip">Chat with Saurabh</span>
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+      <path d="M12.031 2C6.511 2 2.031 6.48 2.031 12C2.031 13.84 2.531 15.57 3.401 17.07L2.001 22.21L7.261 20.83C8.711 21.62 10.331 22.04 12.031 22.04C17.551 22.04 22.031 17.56 22.031 12.04C22.031 6.48 17.551 2 12.031 2ZM12.031 20.35C10.511 20.35 9.071 19.94 7.821 19.2L7.521 19.02L4.391 19.84L5.231 16.79L5.031 16.47C4.221 15.18 3.791 13.63 3.791 12.04C3.791 7.48 7.491 3.77 12.041 3.77C16.591 3.77 20.291 7.47 20.291 12.03C20.291 16.59 16.581 20.35 12.031 20.35ZM16.551 14.54C16.301 14.41 15.071 13.81 14.841 13.73C14.611 13.65 14.451 13.61 14.281 13.86C14.121 14.11 13.631 14.68 13.481 14.86C13.331 15.03 13.181 15.05 12.931 14.93C12.681 14.81 11.881 14.54 10.931 13.69C10.191 13.03 9.691 12.22 9.541 11.97C9.391 11.72 9.521 11.59 9.651 11.46C9.761 11.35 9.901 11.17 10.021 11.03C10.141 10.89 10.191 10.78 10.271 10.62C10.351 10.45 10.311 10.31 10.251 10.19C10.191 10.07 9.691 8.85 9.491 8.35C9.291 7.87 9.091 7.93 8.941 7.93C8.801 7.92 8.631 7.92 8.471 7.92C8.301 7.92 8.041 7.98 7.811 8.23C7.581 8.48 6.941 9.08 6.941 10.3C6.941 11.52 7.831 12.7 7.951 12.87C8.071 13.03 9.701 15.54 12.191 16.62C12.781 16.88 13.241 17.03 13.601 17.14C14.201 17.33 14.741 17.31 15.171 17.24C15.651 17.17 16.651 16.63 16.861 16.05C17.071 15.47 17.071 14.98 17.001 14.86C16.941 14.74 16.801 14.67 16.551 14.54Z"/>
+    </svg>
   </a>
+
+  <button class="scroll-top-btn" id="scrollTopBtn" type="button" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
