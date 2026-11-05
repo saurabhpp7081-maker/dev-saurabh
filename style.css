@@ -30,11 +30,17 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  max-width: 100vw;
   min-width: 320px;
+  overflow-x: hidden;
   color: var(--text);
   font-family: "Manrope", sans-serif;
   background-color: var(--bg);
@@ -574,7 +580,9 @@ body[data-theme="light"] .whatsapp-tooltip {
 
 .site-shell {
   position: relative;
-  overflow: clip;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* =========================================================
@@ -2671,61 +2679,224 @@ body[data-theme="light"] .ambient-canvas {
 
 @media (max-width: 780px) {
   .section {
-    padding: 4.5rem 0;
+    padding: 3.5rem 0;
+  }
+
+  /* 1. Flawless Mobile Navigation Bar */
+  .topbar {
+    padding: 0.5rem 0;
   }
 
   .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     min-height: auto;
-    padding: 1rem 0;
+    padding: 0;
+    gap: 0.5rem;
+  }
+
+  .brand {
+    order: 1;
+    z-index: 10;
+  }
+
+  .nav-controls {
+    order: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: auto;
+    z-index: 10;
+  }
+
+  .mode-toggle-btn .mode-label {
+    display: none;
+  }
+
+  .mode-toggle-btn {
+    height: 2.15rem;
+    padding: 0 0.55rem;
+    font-size: 0.85rem;
+  }
+
+  .sound-toggle-btn,
+  .theme-toggle {
+    width: 2.15rem;
+    height: 2.15rem;
+    flex: 0 0 2.15rem;
+    font-size: 0.85rem;
   }
 
   .menu-toggle {
-    display: inline-block;
+    order: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    flex: 0 0 2.35rem;
+    border-radius: 50%;
+    z-index: 10;
   }
 
+  /* Mobile Drawer Links */
   .nav-links {
-    order: 5;
+    order: 4;
     display: none;
     width: 100%;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.45rem;
-    padding: 0.7rem 0 0;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    padding: 0.85rem;
+    border-radius: 1rem;
+    background: rgba(10, 15, 29, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  }
+
+  body[data-theme="light"] .nav-links {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
   }
 
   .nav-links.is-open {
     display: flex;
+    animation: fadeInDown 0.25s ease;
   }
 
   .nav-links a {
-    padding: 0.9rem 1rem;
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.04);
+    padding: 0.75rem 1rem;
+    border-radius: 0.65rem;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: #e2e8f0;
   }
 
-  .theme-toggle {
-    margin-left: auto;
+  body[data-theme="light"] .nav-links a {
+    background: #f8fafc;
+    color: #0f172a;
   }
 
   .nav-cta {
     text-align: center;
+    margin-top: 0.35rem;
   }
 
-  .hero-copy h1,
-  .section-heading h2,
-  .about-panel h2,
-  .contact-copy h2,
-  .cta-copy h2,
-  .urgency-copy h2 {
-    line-height: 1.02;
-  }
-
+  /* 2. Hero Typography & Stage */
   .hero-copy h1 {
-    max-width: none;
-    font-size: clamp(2.8rem, 14vw, 4.3rem);
+    font-size: clamp(2rem, 8.5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
+  .hero-text {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .hero-orbit-stage {
+    overflow: hidden;
+    border-radius: calc(var(--radius-lg) - 4px);
+    margin-bottom: 1rem;
+  }
+
+  .orbit-system {
+    display: none; /* Prevents wide rotating rings from overflowing viewport */
+  }
+
+  .hero-portrait,
+  .hero-portrait-wide {
+    min-height: 17rem !important;
+    max-height: 22rem;
+  }
+
+  .floating-badge {
+    position: absolute;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.72rem;
+    gap: 0.4rem;
+    animation: none;
+  }
+
+  .floating-badge-top {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .floating-badge-bottom {
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  /* 3. Cyber VS Code Editor Window Mobile */
+  .cyber-editor-window {
+    margin-top: 1rem;
+  }
+
+  .editor-header {
+    flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .editor-tabs {
+    order: 2;
+    width: 100%;
+    gap: 0.25rem;
+  }
+
+  .editor-tab {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .run-code-btn {
+    order: 1;
+    margin-left: auto;
+    font-size: 0.72rem;
+    padding: 0.28rem 0.6rem;
+  }
+
+  .window-controls {
+    order: 0;
+  }
+
+  .editor-body {
+    padding: 0.7rem 0.8rem;
+    overflow-x: auto;
+  }
+
+  .code-lines {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .ln {
+    width: 1.2rem;
+  }
+
+  .editor-terminal {
+    padding: 0.6rem 0.8rem;
+    overflow-x: auto;
+  }
+
+  .terminal-output {
+    font-size: 0.72rem;
+    min-height: 2.5rem;
+  }
+
+  .term-line {
+    word-break: break-word;
+  }
+
+  /* 4. Grids & Project Visuals */
   .hero-stage-cards,
   .hero-metrics,
   .project-grid-featured,
@@ -2733,76 +2904,206 @@ body[data-theme="light"] .ambient-canvas {
   .process-cards,
   .contact-cards,
   .featured-project-grid,
-  .tech-grid,
-  .stats-grid,
   .repo-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .hero-portrait,
-  .hero-portrait-wide,
-  .urgency-media,
-  .cta-media,
-  .about-image-card {
-    min-height: 22rem;
+  .stats-grid,
+  .tech-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
   }
 
-  .hero-note {
-    border-radius: 1.2rem;
+  .stat-card,
+  .tech-card {
+    padding: 1rem 0.85rem;
+  }
+
+  .stat-number {
+    font-size: 2.1rem;
+  }
+
+  .project-visual {
+    min-height: 14rem !important;
+  }
+
+  .portfolio-card .project-visual {
+    min-height: 13.5rem !important;
+  }
+
+  .project-content {
+    padding: 1.25rem 1rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.2rem;
+    line-height: 1.35;
+  }
+
+  .tag-row span {
+    font-size: 0.74rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  /* 5. Before & After Slider Responsive */
+  .before-after-box {
+    min-height: 390px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ba-layer {
+    padding: 0.85rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .broken-preview,
+  .fixed-preview {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    gap: 0.65rem;
+  }
+
+  .broken-header-bar,
+  .fixed-header-bar {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  .site-url {
+    font-size: 0.72rem;
+  }
+
+  .err-pill,
+  .success-pill {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .err-grid,
+  .success-grid {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .err-box,
+  .success-box {
+    padding: 0.55rem 0.65rem;
+    font-size: 0.76rem;
+  }
+
+  .ba-handle-btn {
+    width: 2.35rem;
+    height: 2.35rem;
+    font-size: 0.65rem;
+  }
+
+  .ba-hint {
+    font-size: 0.75rem;
+  }
+
+  /* 6. Form & Buttons Mobile */
+  .contact-form-wrap {
+    padding: 1.25rem 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
   .filter-bar {
     overflow-x: auto;
-    padding-bottom: 0.3rem;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .project-actions,
-  .resume-panel {
-    align-items: stretch;
-    flex-direction: column;
+  .filter-chip {
+    white-space: nowrap;
+    font-size: 0.82rem;
+    padding: 0.45rem 0.85rem;
   }
 
-  .project-actions .button,
-  .resume-button {
-    width: 100%;
+  .cta-panel {
+    padding: 2.25rem 1rem;
   }
 
   .testimonial-card {
-    min-height: 22rem;
-    padding: 1.45rem;
-  }
-
-  .testimonial-controls {
-    right: 1rem;
-    bottom: 1rem;
-  }
-
-  .floating-badge {
-    position: static;
-    display: inline-flex;
-    margin: 0.5rem 0.35rem 0 0;
-    animation: none;
-    font-size: 0.8rem;
-    padding: 0.6rem 0.95rem;
-  }
-
-  .hero-portrait {
-    display: flex;
-    flex-direction: column;
+    min-height: 20rem;
+    padding: 1.25rem;
   }
 
   .whatsapp-float {
-    right: 1rem;
-    bottom: 1rem;
-    width: 3.35rem;
-    height: 3.35rem;
+    right: 0.85rem;
+    bottom: 0.85rem;
+    width: 3.1rem;
+    height: 3.1rem;
   }
 
   .scroll-top-btn {
-    right: 1rem;
-    bottom: 4.85rem;
-    width: 2.85rem;
-    height: 2.85rem;
+    right: 0.85rem;
+    bottom: 4.45rem;
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 1.25rem);
+  }
+
+  .brand-copy strong {
+    font-size: 0.95rem;
+  }
+
+  .brand-copy span {
+    font-size: 0.7rem;
+  }
+
+  .brand-mark {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.85rem, 8vw, 2.35rem);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .before-after-box {
+    min-height: 420px;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -3496,7 +3797,8 @@ body[data-theme="light"] .ambient-canvas {
 .broken-preview,
 .fixed-preview {
   width: 100%;
-  min-width: 440px;
+  max-width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
@@ -3644,47 +3946,6 @@ body[data-theme="light"] .ambient-canvas {
   font-size: 0.8rem;
   color: #94a3b8;
   letter-spacing: 0.02em;
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .orbit-path-outer {
-    width: 114%;
-    height: 114%;
-  }
-  .orbit-path-inner {
-    width: 92%;
-    height: 92%;
-  }
-  .orbit-badge {
-    width: 2.3rem;
-    height: 2.3rem;
-    font-size: 0.74rem;
-  }
-  .broken-preview,
-  .fixed-preview {
-    min-width: 320px;
-  }
-  .before-after-box {
-    min-height: 440px;
-  }
-}
-
-@media (max-width: 640px) {
-  .nav-controls {
-    display: none;
-  }
-  .orbit-system {
-    display: none;
-  }
-  .broken-preview,
-  .fixed-preview {
-    min-width: 280px;
-  }
-  .err-grid,
-  .success-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
